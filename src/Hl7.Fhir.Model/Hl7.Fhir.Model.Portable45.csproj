@@ -143,6 +143,7 @@
     <Compile Include="Model\Bundle.cs" />
     <Compile Include="Model\BundleEntry.cs" />
     <Compile Include="Model\Code.cs" />
+    <Compile Include="Model\ImagingStudyExtensions.cs" />
     <Compile Include="Model\Query.cs" />
     <Compile Include="Model\Date.cs" />
     <Compile Include="Model\DeletedEntry.cs" />

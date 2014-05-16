@@ -151,6 +151,41 @@ namespace Hl7.Fhir.Tests
             {
                 // pass
             }
-        }    
+        }
+
+        [TestMethod]
+        public void SelectInstancesAndSeries()
+        {
+            var studies = new List<ImagingStudy>();
+
+            var studyA = new ImagingStudy();
+            studyA.Series = new List<ImagingStudy.ImagingStudySeriesComponent>();
+
+            var serieA1 = new ImagingStudy.ImagingStudySeriesComponent();
+            serieA1.Instance = new List<ImagingStudy.ImagingStudySeriesInstanceComponent>();
+
+            var instanceA11 = new ImagingStudy.ImagingStudySeriesInstanceComponent() { Uid = "a11" };
+            var instanceA12 = new ImagingStudy.ImagingStudySeriesInstanceComponent() { Uid = "a12" };
+            var instanceA13 = new ImagingStudy.ImagingStudySeriesInstanceComponent() { Uid = "a13" };
+
+            serieA1.Instance.Add(instanceA11);
+            serieA1.Instance.Add(instanceA12);
+            serieA1.Instance.Add(instanceA13);
+
+            var serieA2 = new ImagingStudy.ImagingStudySeriesComponent();
+            serieA2.Instance = null;
+
+            studyA.Series.Add(serieA1);
+            studyA.Series.Add(serieA2);
+
+            var studyB = new ImagingStudy();
+            studyB.Series = null;
+
+            studies.Add(studyA);
+            studies.Add(studyB);
+
+            Assert.AreEqual(3, studies.ListInstances().Count());
+            Assert.AreEqual(2, studies.ListSeries().Count());
+        }
     }
 }
