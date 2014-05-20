@@ -84,6 +84,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Serialization\DefaultModelFactory.cs" />
+    <Compile Include="Serialization\DicomSerializer.cs" />
     <Compile Include="Serialization\DispatchingWriter.cs" />
     <Compile Include="Serialization\DispatchingReader.cs" />
     <Compile Include="Introspection\EnumMapping.cs" />
