@@ -65,6 +65,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DSTU1compatibility.cs" />
+    <Compile Include="FluentSearch\Chained.cs" />
+    <Compile Include="FluentSearch\FluentQueryConstants.cs" />
+    <Compile Include="FluentSearch\FluentSearchQuery.cs" />
+    <Compile Include="FluentSearch\IFluentSearchQuery.cs" />
+    <Compile Include="FluentSearch\Query.cs" />
+    <Compile Include="FluentSearch\ResourcesSearchParams\BaseSearchParam.cs" />
+    <Compile Include="FluentSearch\ResourcesSearchParams\ChainedContext.cs" />
+    <Compile Include="FluentSearch\ResourcesSearchParams\ISearchParam.cs" />
+    <Compile Include="FluentSearch\ResourcesSearchParams\MedicationSearchParam.cs" />
+    <Compile Include="FluentSearch\ResourcesSearchParams\OrganizationSearchParam.cs" />
+    <Compile Include="FluentSearch\ResourcesSearchParams\PatientSearchParam.cs" />
+    <Compile Include="FluentSearch\SearchParamType\BaseSearchParamType.cs" />
+    <Compile Include="FluentSearch\SearchParamType\DateTimeSearchParamType.cs" />
+    <Compile Include="FluentSearch\SearchParamType\ISearchParamType.cs" />
+    <Compile Include="FluentSearch\SearchParamType\NumberSearchParamType.cs" />
+    <Compile Include="FluentSearch\SearchParamType\QuantitySearchParamType.cs" />
+    <Compile Include="FluentSearch\SearchParamType\ReferenceSearchParamType.cs" />
+    <Compile Include="FluentSearch\SearchParamType\StringSearchParamType.cs" />
+    <Compile Include="FluentSearch\SearchParamType\TokenSearchParamType.cs" />
+    <Compile Include="FluentSearch\SearchParamType\UriSearchParamType.cs" />
     <Compile Include="Introspection\ChoiceType.cs" />
     <Compile Include="Introspection\EnumLiteralAttribute.cs" />
     <Compile Include="Introspection\FhirElementAttribute.cs" />
