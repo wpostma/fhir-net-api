@@ -34,21 +34,21 @@ namespace Hl7.Fhir.Introspection
         {
             if (assembly == null) throw Error.ArgumentNull("assembly");
 
-#if PORTABLE45
+#if PORTABLE45 || DOTNET
 			if (assembly.GetCustomAttribute<NotMappedAttribute>() != null) return;
 #else
             if (Attribute.GetCustomAttribute(assembly, typeof(NotMappedAttribute)) != null) return;
 #endif
 
-#if PORTABLE45
+#if PORTABLE45 || DOTNET
 			IEnumerable<Type> exportedTypes = assembly.ExportedTypes;
 #else
-			Type[] exportedTypes = assembly.GetExportedTypes();
+            Type[] exportedTypes = assembly.GetExportedTypes();
 #endif
 			foreach (Type type in exportedTypes)
             {
                 // Don't import types marked with [NotMapped]
-#if PORTABLE45
+#if PORTABLE45 || DOTNET
 				if (type.GetTypeInfo().GetCustomAttribute<NotMappedAttribute>() != null) continue;
 #else
                 if (Attribute.GetCustomAttribute(type, typeof(NotMappedAttribute)) != null) continue;

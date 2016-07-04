@@ -21,7 +21,7 @@ namespace Hl7.Fhir.Rest
     {
         internal static void WriteBody(this HttpWebRequest request, byte[] data)
         {
-#if PORTABLE45
+#if (PORTABLE45 || DOTNET)
             Stream outs = null;
             //outs = request.GetRequestStreamAsync().Result;
             //outs.Write(data, 0, (int)data.Length);
@@ -162,7 +162,7 @@ namespace Hl7.Fhir.Rest
 
             if (!async.IsCompleted)
             {
-#if !PORTABLE45
+#if !(PORTABLE45 || DOTNET)
                 ThreadPool.RegisterWaitForSingleObject(async.AsyncWaitHandle, new WaitOrTimerCallback(TimeoutCallback), req, req.Timeout, true);
 #endif
 

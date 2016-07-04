@@ -39,6 +39,8 @@ using System.Xml.Schema;
 using Hl7.Fhir.Serialization;
 
 
+// TODO: Implement validation for PORTABLE45 and DNXCORE50
+
 namespace Hl7.Fhir.Model
 {
     public static class XHtml
@@ -48,7 +50,7 @@ namespace Hl7.Fhir.Model
             try
             {
                 // There is currently no validation in the portable .net
-#if !PORTABLE45
+#if !(PORTABLE45 || DOTNET)
                 var doc = SerializationUtil.XDocumentFromXmlText(value as string);
                 doc.Validate(_xhtmlSchemaSet.Value, validationEventHandler: null);
 #endif
@@ -61,7 +63,7 @@ namespace Hl7.Fhir.Model
             }
         }
 
-#if !PORTABLE45
+#if !(PORTABLE45 || DOTNET)
         private static Lazy<XmlSchemaSet> _xhtmlSchemaSet = new Lazy<XmlSchemaSet>(compileXhtmlSchema, true);
 
         private static XmlSchemaSet compileXhtmlSchema()
@@ -111,5 +113,5 @@ namespace Hl7.Fhir.Model
 #endif
 
     }
-  
+
 }
