@@ -1,7 +1,7 @@
 properties {
   $productName = "Hl7.Fhir .Net Library" 
   $productVersion = "0.90.5"             # Update this for a new release
-  $nugetPrelease = "alpha2"              # Set this to something like "alpha", if desired
+  $nugetPrelease = "alpha3"              # alpha2 = RC1, alpha3 = .net core rtm 1.0.0
 
   $ignoreTestFailure = $true             # Report build success, even though tests failed. Useful for alpha versions
 
@@ -90,7 +90,7 @@ properties {
   $Script:MSBuild = "MSBuild"
   $Script:VSTest = "VSTest.Console"
 
-  $testCaseFilter = ”TestCategory!=IntegrationTest&TestCategory!=LongRunner"
+  $testCaseFilter = ï¿½TestCategory!=IntegrationTest&TestCategory!=LongRunner"
 }
 
 
@@ -480,11 +480,11 @@ function VSTests($build)
     {
        if ($appVeyor)
        {
-         & "$VSTest" $workingSourceDir\$testName\bin\Release\$finalDir\$testName.dll /Logger:Appveyor /TestCaseFilter:”$testCaseFilter" | Out-Default  # TODO: Include LongRunners again.
+         & "$VSTest" $workingSourceDir\$testName\bin\Release\$finalDir\$testName.dll /Logger:Appveyor /TestCaseFilter:ï¿½$testCaseFilter" | Out-Default  # TODO: Include LongRunners again.
        }
        else
        {
-         & "$VSTest" $workingSourceDir\$testName\bin\Release\$finalDir\$testName.dll /Logger:Trx /TestCaseFilter:”$testCaseFilter" | Out-Default     # TODO: Find out why Trx logger is often not writing anything to file.
+         & "$VSTest" $workingSourceDir\$testName\bin\Release\$finalDir\$testName.dll /Logger:Trx /TestCaseFilter:ï¿½$testCaseFilter" | Out-Default     # TODO: Find out why Trx logger is often not writing anything to file.
        }
     }
     catch {
