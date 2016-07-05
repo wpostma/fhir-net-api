@@ -90,7 +90,7 @@ properties {
   $Script:MSBuild = "MSBuild"
   $Script:VSTest = "VSTest.Console"
 
-  $testCaseFilter = �TestCategory!=IntegrationTest&TestCategory!=LongRunner"
+  $testCaseFilter = "TestCategory!=IntegrationTest&TestCategory!=LongRunner"
 }
 
 
